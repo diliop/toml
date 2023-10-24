@@ -60,7 +60,7 @@ impl RawString {
     }
 
     /// Access the underlying span
-    pub(crate) fn span(&self) -> Option<std::ops::Range<usize>> {
+    pub fn span(&self) -> Option<std::ops::Range<usize>> {
         match &self.0 {
             RawStringInner::Empty => None,
             RawStringInner::Explicit(_) => None,
@@ -68,7 +68,7 @@ impl RawString {
         }
     }
 
-    pub(crate) fn despan(&mut self, input: &str) {
+    pub fn despan(&mut self, input: &str) {
         match &self.0 {
             RawStringInner::Empty => {}
             RawStringInner::Explicit(_) => {}

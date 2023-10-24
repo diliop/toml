@@ -206,7 +206,7 @@ impl Value {
     }
 
     /// Returns the location within the original document
-    pub(crate) fn span(&self) -> Option<std::ops::Range<usize>> {
+    pub fn span(&self) -> Option<std::ops::Range<usize>> {
         match self {
             Value::String(f) => f.span(),
             Value::Integer(f) => f.span(),
@@ -218,7 +218,7 @@ impl Value {
         }
     }
 
-    pub(crate) fn despan(&mut self, input: &str) {
+    pub fn despan(&mut self, input: &str) {
         match self {
             Value::String(f) => f.despan(input),
             Value::Integer(f) => f.despan(input),

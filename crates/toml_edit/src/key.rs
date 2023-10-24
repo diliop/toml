@@ -109,12 +109,11 @@ impl Key {
     }
 
     /// Returns the location within the original document
-    #[cfg(feature = "serde")]
-    pub(crate) fn span(&self) -> Option<std::ops::Range<usize>> {
+    pub fn span(&self) -> Option<std::ops::Range<usize>> {
         self.repr.as_ref().and_then(|r| r.span())
     }
 
-    pub(crate) fn despan(&mut self, input: &str) {
+    pub fn despan(&mut self, input: &str) {
         self.decor.despan(input);
         if let Some(repr) = &mut self.repr {
             repr.despan(input)

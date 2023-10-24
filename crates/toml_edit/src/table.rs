@@ -225,11 +225,11 @@ impl Table {
     }
 
     /// Returns the location within the original document
-    pub(crate) fn span(&self) -> Option<std::ops::Range<usize>> {
+    pub fn span(&self) -> Option<std::ops::Range<usize>> {
         self.span.clone()
     }
 
-    pub(crate) fn despan(&mut self, input: &str) {
+    pub fn despan(&mut self, input: &str) {
         self.span = None;
         self.decor.despan(input);
         for kv in self.items.values_mut() {

@@ -88,11 +88,11 @@ impl Array {
     }
 
     /// Returns the location within the original document
-    pub(crate) fn span(&self) -> Option<std::ops::Range<usize>> {
+    pub fn span(&self) -> Option<std::ops::Range<usize>> {
         self.span.clone()
     }
 
-    pub(crate) fn despan(&mut self, input: &str) {
+    pub fn despan(&mut self, input: &str) {
         self.span = None;
         self.decor.despan(input);
         self.trailing.despan(input);
